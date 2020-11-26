@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { AddCategory } from './components';
+import { AddCategory, GifGrid } from './components';
 import shortid from 'shortid';
 
 const GifExpertApp = () => {
 
-	const [ category, setCategory ] = useState([{ 
-		name: 'One Punch',
+	const [ categories, setCategory ] = useState([{ 
+		nameCategory: 'One Punch',
 		id: shortid.generate()
 	}]);
 
@@ -14,11 +14,22 @@ const GifExpertApp = () => {
 			<h2>GifExpertApp</h2>
 			
 			<AddCategory
-				category={ category }
+				categories={ categories }
 				setCategory={ setCategory }
 			/>
 
 			<hr />
+
+			<ol>
+				{
+					categories.map( category => (
+						<GifGrid
+							key={ category.id }
+							{ ...category }		
+						/>
+					))
+				}
+			</ol>
 		</>
 	);
 };

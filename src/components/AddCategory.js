@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
-const AddCategory = ({ category, setCategory }) => {
+const AddCategory = ({ categories, setCategory }) => {
     
     const [ inputValue, setInputValue ] = useState( '' );
 
@@ -11,12 +11,12 @@ const AddCategory = ({ category, setCategory }) => {
     const handleSubmit = e => {
         e.preventDefault();
     
-        const [{ name }] = category;
+        const [{ nameCategory }] = categories;
 
-        if( inputValue.trim().length > 2 && inputValue.trim() !== name ) {
+        if( inputValue.trim().length > 2 && inputValue.trim() !== nameCategory ) {
 
             setCategory( cats => [{
-                name: inputValue.trim(),
+                nameCategory: inputValue.trim(),
                 id: shortid.generate()
             }, ...cats ] );
 
@@ -38,7 +38,7 @@ const AddCategory = ({ category, setCategory }) => {
 };
 
 AddCategory.propTypes = {
-    category: PropTypes.array.isRequired,
+    categories: PropTypes.array.isRequired,
     setCategory: PropTypes.func.isRequired
 };
 
