@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useFetchGifs } from '../hooks/useFetchGifs';
-import { GifGridItem } from './';
+import { GifGridItem, Spinner } from './';
 
 const GifGrid = ({ nameCategory }) => {
 
@@ -9,9 +9,9 @@ const GifGrid = ({ nameCategory }) => {
 
     return (
         <>
-            <h3>{ nameCategory }</h3>
+            <h3 className="animate__animated animate__fadeIn">{ nameCategory }</h3>
 
-            { loading && <p>Loading...</p> }
+            { loading && <Spinner /> }
 
             <div className="card-grid">
                 {
