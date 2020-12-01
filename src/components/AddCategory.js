@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
 import shortid from 'shortid';
 
 const AddCategory = ({ categories, setCategory }) => {
@@ -7,7 +8,7 @@ const AddCategory = ({ categories, setCategory }) => {
     const [ inputValue, setInputValue ] = useState( '' );
 
     const handleInputChange = e => setInputValue( e.target.value );
-    
+
     const handleSubmit = e => {
         e.preventDefault();
     

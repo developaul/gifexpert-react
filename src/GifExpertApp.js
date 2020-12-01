@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { AddCategory, GifGrid } from './components';
+
 import shortid from 'shortid';
+
+import { AddCategory, GifGrid } from './components';
 
 const GifExpertApp = () => {
 
